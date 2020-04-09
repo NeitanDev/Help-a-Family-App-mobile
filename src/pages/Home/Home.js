@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, Modal } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../assets/LogoVerde.png';
 import Solidariedade from '../../assets/solidariedade.jpg';
 import FamiliaModal from '../../assets/FamiliaModal.png';
@@ -35,10 +36,15 @@ import {
 
 export default function Home() {
     const [visibleModal, setVivibleModal] = useState(false);
-    return (
+    const [quem, setQuem] = useState('');
+    const [qual, setQual] = useState('');
 
+    const navigation = useNavigation();
+
+    return (
         <Container>
-            <Modal animatedType="slide"
+            <Modal
+                animated="slide"
                 transparent={true}
                 visible={visibleModal}
                 onRequestClose={() => {
@@ -46,13 +52,24 @@ export default function Home() {
                 }}>
                 <ContainerModal>
                     <BodyModal>
-                        <ModalItem style={{ marginBottom: 20 }}>
+                        <ModalItem
+                            style={{ marginBottom: 20 }}
+                            onPress={() => {
+                                setVivibleModal(false);
+                                navigation.navigate(`${qual}Familia`);
+                            }}
+                        >
                             <ModalItemViewImage>
                                 <ModalItemImage source={FamiliaModal} />
                             </ModalItemViewImage>
                             <ModalItemText>Familia</ModalItemText>
                         </ModalItem>
-                        <ModalItem>
+                        <ModalItem
+                            onPress={() => {
+                                setVivibleModal(false);
+                                navigation.navigate(`${qual}Org`);
+                            }}
+                        >
                             <ModalItemViewImage>
                                 <ModalItemImage source={Organizacaomodal} />
                             </ModalItemViewImage>
@@ -81,12 +98,22 @@ export default function Home() {
                 </ContainerSolid>
                 <Title>Solidariedade é o nosso lema</Title>
                 <Form>
-                    <ButtonLogin onPress={() => setVivibleModal(true)}>
+                    <ButtonLogin
+                        onPress={() => {
+                            setVivibleModal(true);
+                            setQual('Login')
+                        }}
+                    >
                         <ButtonLoginText>
                             Login
                         </ButtonLoginText>
                     </ButtonLogin>
-                    <ButtonCadastro onPress={() => setVivibleModal(true)}>
+                    <ButtonCadastro
+                        onPress={() => {
+                            setVivibleModal(true);
+                            setQual('Cadastro')
+                        }}
+                    >
                         <ButtonCadastroText>
                             Cadastro
                         </ButtonCadastroText>

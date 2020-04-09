@@ -23,7 +23,7 @@ export const ContainerLogo = styled.View`
     width:40%;
     align-items: center;
     justify-content: center;
-    background-color: #333;
+    /* background-color: #333; */
 `;
 
 export const Logo = styled.Image`
@@ -75,7 +75,7 @@ export const Solid = styled.Image`
     width: 100%;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-`; 
+`;
 
 export const Title = styled.Text`
     font-family: Amaranth-Regular;
@@ -193,7 +193,7 @@ export const ModalItemViewImage = styled.View`
     align-items:center;
 `;
 
-export const  ModalItemImage = styled.Image`
+export const ModalItemImage = styled.Image`
     height: 90%;
     width:70%;
 `;
