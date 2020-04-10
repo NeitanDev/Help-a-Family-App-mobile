@@ -13,6 +13,11 @@ import {
     ContainerTitlePage,
     ContainerFamilia,
     FamiliaImage,
+    Form,
+    Title,
+    Input,
+    Button,
+    ButtonText
 } from './style';
 
 export default function Login() {
@@ -30,6 +35,20 @@ export default function Login() {
                 <ContainerFamilia>
                     <FamiliaImage source={fam} />
                 </ContainerFamilia>
+                <Form>
+                    <Title>
+                        Encontre alguma entidade que possa lhe ajudar
+                    </Title>
+                    <Input
+                        placeholder="Sua chave"
+                    />
+                    <Input
+                        placeholder="Sua senha"
+                    />
+                    <Button>
+                        <ButtonText>Login</ButtonText>
+                    </Button>
+                </Form>
             </Body>
         </Container>
     );

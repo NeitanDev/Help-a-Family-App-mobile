@@ -54,6 +54,7 @@ export const Body = styled.View`
     border-radius: 50px;
     padding-left: 24px;
     padding-right: 24px;
+    padding-top:24px;
 `;
 
 //até aqui vai ser padrão de todas as paginas
@@ -65,7 +66,65 @@ export const ContainerFamilia = styled.View`
     align-items: center;
 `;
 
-export const FamiliaImage =  styled.Image`
+export const FamiliaImage = styled.Image`
     height: 100%;
     width: 70%;
+`;
+
+export const Form = styled.View`
+    height: 65%;
+    width: 100%;
+    /* background-color: #333; */
+    justify-content: flex-end;
+    align-items:center;
+    padding-top:24px;
+    padding-bottom:24px;
+`;
+
+export const Title = styled.Text`
+    font-family: Amaranth-Regular;
+    font-size: 40px;
+    color: #2bbf54;
+    text-align: center;
+`;
+
+
+
+export const Input =  styled.TextInput`
+    width: 100%;
+    height: 50px;
+    background-color: #FFF;
+    justify-content:center;
+    align-items: center;
+    border: 0.2px;
+    border-radius:8px;
+    padding-left:10px;
+    padding-right:8px;
+    font-family: Amaranth-Regular;
+    font-size: 24px;
+    color: #2bbf54;
+    margin-top: 24px;
+`;
+
+export const Button = styled.TouchableOpacity`
+    width: 100%;
+    height: 50px;
+    background-color: #FFF;
+    justify-content:center;
+    align-items: center;
+    /* border: 0.5px; */
+    border-radius:10px;
+    /* padding-left:10px; */
+    /* padding-right:8px; */
+    /* font-family: Amaranth-Regular; */
+    /* font-size: 24px; */
+    background-color: #2bbf54;
+    margin-top: 24px;
+`;
+
+export const ButtonText = styled.Text`
+    font-family: Amaranth-Regular;
+    font-size: 40px;
+    color: #FFF;
+    text-align:center;
 `;
