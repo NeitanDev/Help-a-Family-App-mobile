@@ -13,7 +13,7 @@ import {
     TitlePage,
 } from './style';
 
-export default function Login() {
+export default function Historico() {
     return (
         <Container>
             <Header>

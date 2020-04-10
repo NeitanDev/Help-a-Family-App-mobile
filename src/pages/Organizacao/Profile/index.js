@@ -12,7 +12,7 @@ import {
     TitlePage,
 } from './style';
 
-export default function Login() {
+export default function Profile() {
     return (
         <Container>
             <Header>

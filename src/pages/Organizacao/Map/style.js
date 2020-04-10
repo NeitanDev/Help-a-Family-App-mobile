@@ -52,7 +52,7 @@ export const Body = styled.View`
     align-items: center;
     /* justify-content: center; */
     border-radius: 50px;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top:24px;
+    /* padding-left: 24px; */
+    /* padding-right: 24px; */
+    /* padding-top:24px; */
 `;
