@@ -6,6 +6,7 @@ import LoginFamilia from './pages/Familia/Login/index';
 import LoginOrg from './pages/Organizacao/Login/index';
 import CadastroFamilia from './pages/Familia/Cadastro/index';
 import CadastroOrg from './pages/Organizacao/Cadastro/index';
+import Org from './pages/Organizacao/routes';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ function Routes() {
                 <Stack.Screen name="LoginOrg" component={LoginOrg} />
                 <Stack.Screen name="CadastroFamilia" component={CadastroFamilia} />
                 <Stack.Screen name="CadastroOrg" component={CadastroOrg} />
+                <Stack.Screen name="Org" component={Org} />
             </Stack.Navigator>
         </NavigationContainer>
     );

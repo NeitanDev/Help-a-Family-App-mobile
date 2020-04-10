@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import fam from '../../../assets/organizaçãomodal.png';
+import { useNavigation } from '@react-navigation/native';
 
 import {
     Container,
@@ -21,6 +22,8 @@ import {
 } from './style';
 
 export default function Login() {
+
+    const navigation = useNavigation();
     return (
         <Container>
             <Header>
@@ -51,7 +54,7 @@ export default function Login() {
                         autoCorrect={false}
                         autoCapitalize="none"
                     />
-                    <Button>
+                    <Button onPress={()=> navigation.navigate('Org')}>
                         <ButtonText>Login</ButtonText>
                     </Button>
                 </Form>

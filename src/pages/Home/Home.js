@@ -36,7 +36,7 @@ import {
 
 export default function Home() {
     const [visibleModal, setVivibleModal] = useState(false);
-    const [quem, setQuem] = useState('');
+    // const [quem, setQuem] = useState('');
     const [qual, setQual] = useState('');
 
     const navigation = useNavigation();
