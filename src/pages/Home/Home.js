@@ -48,7 +48,8 @@ export default function Home() {
                 transparent={true}
                 visible={visibleModal}
                 onRequestClose={() => {
-                    Alert.alert('Modal has been closed.');
+                    setVivibleModal(false);
+                    // Alert.alert('Modal has been closed.');
                 }}>
                 <ContainerModal>
                     <BodyModal>
