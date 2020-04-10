@@ -10,9 +10,22 @@ const Tab = createBottomTabNavigator();
 export default function Org() {
     return (
         <Tab.Navigator
-            activeColor="#f0edf6"
-            inactiveColor="#3e2465"
-            barStyle={{ backgroundColor: '#694fad' }}
+        tabBarOptions={{
+            activeTintColor: '#FFF',
+            inactiveTintColor: 'gray',
+            activeBackgroundColor: '#2bbf54',
+            inactiveBackgroundColor: '#2bbf54',
+            style: {
+                borderTopWidth:0,
+                shadowColor: '#2bbf54',
+                shadowOpacity: 0,
+                shadowOffset: {
+                    width: 0,
+                    height: 0,
+                },
+                elevation: 0,
+            },
+          }}
         >
             <Tab.Screen name="Profile" component={Profile} />
             <Tab.Screen name="Historico" component={Historico} />
