@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
+import fam from '../../../assets/organizaçãomodal.png';
 
 import {
     Container,
@@ -10,6 +11,13 @@ import {
     Logo,
     TitlePage,
     ContainerTitlePage,
+    ContainerOrg,
+    OrgImage,
+    Form,
+    Title,
+    Input,
+    Button,
+    ButtonText
 } from './style';
 
 export default function Login() {
@@ -24,7 +32,23 @@ export default function Login() {
                 </ContainerTitlePage>
             </Header>
             <Body>
-                
+                <ContainerOrg>
+                    <OrgImage source={fam} />
+                </ContainerOrg>
+                <Form>
+                    <Title>
+                        Encontre alguma entidade que possa lhe ajudar
+                    </Title>
+                    <Input
+                        placeholder="Email da entidade"
+                    />
+                    <Input
+                        placeholder="Senha"
+                    />
+                    <Button>
+                        <ButtonText>Login</ButtonText>
+                    </Button>
+                </Form>
             </Body>
         </Container>
     );
