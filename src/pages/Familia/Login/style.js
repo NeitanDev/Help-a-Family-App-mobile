@@ -57,3 +57,15 @@ export const Body = styled.View`
 `;
 
 //até aqui vai ser padrão de todas as paginas
+
+export const ContainerFamilia = styled.View`
+    height: 35%;
+    width: 100%;
+    /* background-color: #333; */
+    align-items: center;
+`;
+
+export const FamiliaImage =  styled.Image`
+    height: 100%;
+    width: 70%;
+`;

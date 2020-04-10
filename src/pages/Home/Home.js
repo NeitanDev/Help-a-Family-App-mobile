@@ -3,8 +3,8 @@ import { View, Text, Image, TouchableOpacity, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../assets/LogoVerde.png';
 import Solidariedade from '../../assets/solidariedade.jpg';
-import FamiliaModal from '../../assets/FamiliaModal.png';
-import Organizacaomodal from '../../assets/organizaçãomodal.png';
+import FamiliaModal from '../../assets/oie_transparent.png';
+import Organizacaomodal from '../../assets/oie_transparent2.png';
 
 import {
     Container,

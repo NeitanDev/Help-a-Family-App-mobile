@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
+import fam from '../../../assets/FamiliaModal.png';
 
 import {
     Container,
@@ -10,6 +11,8 @@ import {
     Logo,
     TitlePage,
     ContainerTitlePage,
+    ContainerFamilia,
+    FamiliaImage,
 } from './style';
 
 export default function Login() {
@@ -24,7 +27,9 @@ export default function Login() {
                 </ContainerTitlePage>
             </Header>
             <Body>
-                
+                <ContainerFamilia>
+                    <FamiliaImage source={fam} />
+                </ContainerFamilia>
             </Body>
         </Container>
     );
