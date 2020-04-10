@@ -1,12 +1,31 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import Logosounou from '../../../assets/LogoVerde.png';
 
-// import { Container } from './styles';
+import {
+    Container,
+    Header,
+    Body,
+    ContainerLogo,
+    Logo,
+    TitlePage,
+    ContainerTitlePage,
+} from './style';
 
 export default function Login() {
     return (
-        <View style={{ flex: 1, alignItems: "center", justifyContent: 'center' }}>
-            <Text style={{ fontFamily: 'Amaranth-Regular', fontSize: 56 }}>Login Familia</Text>
-        </View>
+        <Container>
+            <Header>
+                <ContainerLogo>
+                    <Logo source={Logosounou} />
+                </ContainerLogo>
+                <ContainerTitlePage>
+                    <TitlePage>Login</TitlePage>
+                </ContainerTitlePage>
+            </Header>
+            <Body>
+                
+            </Body>
+        </Container>
     );
 }
