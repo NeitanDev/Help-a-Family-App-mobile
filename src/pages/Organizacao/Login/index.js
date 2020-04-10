@@ -37,13 +37,19 @@ export default function Login() {
                 </ContainerOrg>
                 <Form>
                     <Title>
-                        Encontre alguma entidade que possa lhe ajudar
+                        Encontre Familias que precisam de ajuda
                     </Title>
                     <Input
                         placeholder="Email da entidade"
+                        autoCompleteType="email"
+                        autoCapitalize="none"
                     />
                     <Input
                         placeholder="Senha"
+                        // autoCompleteType="password"
+                        secureTextEntry={true}
+                        autoCorrect={false}
+                        autoCapitalize="none"
                     />
                     <Button>
                         <ButtonText>Login</ButtonText>

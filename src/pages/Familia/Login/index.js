@@ -41,9 +41,15 @@ export default function Login() {
                     </Title>
                     <Input
                         placeholder="Sua chave"
+                        autoCorrect={false}
+                        allowFontScaling={true}
+                        autoCapitalize="none"
                     />
                     <Input
                         placeholder="Sua senha"
+                        secureTextEntry={true}
+                        autoCorrect={false}
+                        autoCapitalize="none"
                     />
                     <Button>
                         <ButtonText>Login</ButtonText>

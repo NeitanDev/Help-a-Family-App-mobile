@@ -150,7 +150,7 @@ export const ContainerModal = styled.View`
 export const BodyModal = styled.View`
     width:100%;
     height: 90%;
-    background-color: #333;
+    background-color: #fff;
     border-radius: 20px;
     padding: 24px;
 `;
@@ -161,7 +161,7 @@ export const ButtonVoltar = styled.View`
     background-color: #FFF;
     align-items: center;
     justify-content: center;
-    /* border-top-width: 1px; */
+    border-top-width: 1px;
     border-top-color: #a6a6a6;
     border-left-color: #FFF;
     border-right-color: #FFF;
@@ -184,6 +184,7 @@ export const ModalItem = styled.TouchableOpacity`
     padding: 10px;
     align-items:center;
     justify-content:center;
+    border: 0.3px;
 `;
 
 export const ModalItemViewImage = styled.View`
