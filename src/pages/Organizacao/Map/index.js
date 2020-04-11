@@ -5,8 +5,8 @@ import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import Logosounou from '../../../assets/LogoVerde.png';
 import FamiliIcon from '../../../assets/FamiliaModal.png';
+import { useNavigation } from '@react-navigation/native';
 
-// import { Container } from './styles';
 import {
     Container,
     Header,
@@ -26,6 +26,7 @@ import {
 
 export default function Map() {
 
+    const navigation = useNavigation();
     const [currentRegion, setCurrentRegion] = useState(null);
     const [latitude, setLatitude] = useState(-23.2730918);
     const [longitude, setLongitude] = useState(-46.5902931);
@@ -68,7 +69,7 @@ export default function Map() {
                             <ContainerIconFamily>
                                 <IconFamily source={FamiliIcon} />
                             </ContainerIconFamily>
-                            <Callout style={styles.callout}>
+                            <Callout style={styles.callout} onPress={() => navigation.navigate('FamilyProfile')}>
                                 <CalloutDetails>
                                     <TopFamili>
                                         <ContentNameFamili>

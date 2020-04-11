@@ -3,9 +3,9 @@ import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import Profile from './Profile/index';
 import Historico from './Historico/index';
-import Maps from './Map/index';
+import Maps from './Map/routes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import AntDesing from 'react-native-vector-icons/AntDesign';
+// import AntDesing from 'react-native-vector-icons/AntDesign';
 
 const Tab = createBottomTabNavigator();
 
