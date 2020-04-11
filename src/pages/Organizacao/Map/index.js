@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
-import { View, StyleSheet,Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import Logosounou from '../../../assets/LogoVerde.png';
+import FamiliIcon from '../../../assets/FamiliaModal.png';
 
 // import { Container } from './styles';
 import {
@@ -14,6 +15,13 @@ import {
     ContainerTitlePage,
     Logo,
     TitlePage,
+    IconFamily,
+    ContainerIconFamily,
+    CalloutDetails,
+    NameFamily,
+    TitleNameFamily,
+    ContentNameFamili,
+    TopFamili,
 } from './style';
 
 export default function Map() {
@@ -35,8 +43,8 @@ export default function Map() {
                 setCurrentRegion({
                     latitude,
                     longitude,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01,
+                    latitudeDelta: 0.005,
+                    longitudeDelta: 0.005,
                 })
             }
         }
@@ -55,11 +63,31 @@ export default function Map() {
             </Header>
             <Body>
                 <View style={styles.container}>
-                <MapView initialRegion={currentRegion} style={styles.mapStyle}>
-                <Marker coordinate={{ latitude, longitude }}>
-
-                </Marker>
-            </MapView>
+                    <MapView initialRegion={currentRegion} style={styles.mapStyle}>
+                        <Marker coordinate={{ latitude, longitude }}>
+                            <ContainerIconFamily>
+                                <IconFamily source={FamiliIcon} />
+                            </ContainerIconFamily>
+                            <Callout style={styles.callout}>
+                                <CalloutDetails>
+                                    <TopFamili>
+                                        <ContentNameFamili>
+                                            <TitleNameFamily>Familia:</TitleNameFamily>
+                                            <NameFamily>Bezerra de Miranda</NameFamily>
+                                        </ContentNameFamili>
+                                        <ContentNameFamili>
+                                            <TitleNameFamily>Menbros:</TitleNameFamily>
+                                            <NameFamily>15</NameFamily>
+                                        </ContentNameFamili>
+                                    </TopFamili>
+                                    <TitleNameFamily>Chefe de Familia:</TitleNameFamily>
+                                    <NameFamily>Walter</NameFamily>
+                                    <TitleNameFamily>Mensagem:</TitleNameFamily>
+                                    <NameFamily>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</NameFamily>
+                                </CalloutDetails>
+                            </Callout>
+                        </Marker>
+                    </MapView>
                 </View>
             </Body>
         </Container>
@@ -69,18 +97,23 @@ export default function Map() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:    '#333',
+        backgroundColor: '#333',
         height: '100%',
-        width:'100%',
-        borderRadius:50,
-        overflow: 'hidden' 
+        width: '100%',
+        borderRadius: 50,
+        overflow: 'hidden'
         // paddingTop: Constants.statusBarHeight,
     },
     mapStyle: {
         //flex: 1,
-        borderRadius:50,
+        borderRadius: 50,
         height: '100%',
-        width:'100%',
-        
+        width: '100%',
+
     },
+    callout: {
+        width: 260,
+        height: 100,
+        borderRadius: 10,
+    }
 });

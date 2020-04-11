@@ -45,13 +45,15 @@ export default function Historico() {
                                     </ContainerFamiliaHeader>
                                 <FamiliaText>
                                     Familia aleatoria de sounou
-                                    </FamiliaText>
+                                </FamiliaText>
                             </ContainerFamiliaText>
                             <ContainerFamiliaText>
                                 <ContainerFamiliaHeader>
                                     Data:
                                 </ContainerFamiliaHeader>
-                                <FamiliaText>00/00/0000</FamiliaText>
+                                <FamiliaText>
+                                    00/00/0000
+                                </FamiliaText>
                             </ContainerFamiliaText>
                         </Item>
 
