@@ -1,7 +1,7 @@
 import * as React from 'react';
 //import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Profile from './Profile/index';
+// import Profile from './Profile/index';
 import Historico from './Historico/index';
 import Maps from './Map/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -31,10 +31,7 @@ export default function Org() {
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
-                    if (route.name === 'Profile') {
-                        iconName = 'profile';
-                        return <AntDesing name={iconName} size={size} color={color} />;
-                    } else if (route.name === 'Historico') {
+                    if (route.name === 'Historico') {
                         iconName = 'history';
                         return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
                     } else if (route.name === 'Map') {
@@ -45,7 +42,7 @@ export default function Org() {
             })}
 
         >
-            <Tab.Screen name="Profile" component={Profile} />
+            {/* <Tab.Screen name="Profile" component={Profile} /> */}
             <Tab.Screen name="Map" component={Maps} />
             <Tab.Screen name="Historico" component={Historico} />
         </Tab.Navigator>
