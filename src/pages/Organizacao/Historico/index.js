@@ -11,6 +11,13 @@ import {
     ContainerTitlePage,
     Logo,
     TitlePage,
+    ContainerList,
+    FamiliaText,
+    ContainerFamiliaText,
+    List,
+    Item,
+    Title,
+    ContainerFamiliaHeader,
 } from './style';
 
 export default function Historico() {
@@ -24,7 +31,118 @@ export default function Historico() {
                     <TitlePage>Historico</TitlePage>
                 </ContainerTitlePage>
             </Header>
-            <Body></Body>
+            <Body>
+                <Title>
+                    Familias ajudadas
+                </Title>
+                <ContainerList>
+                    <List showsVerticalScrollIndicator={false}>
+
+                        <Item>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Familia ajudada:
+                                    </ContainerFamiliaHeader>
+                                <FamiliaText>
+                                    Familia aleatoria de sounou
+                                    </FamiliaText>
+                            </ContainerFamiliaText>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Data:
+                                </ContainerFamiliaHeader>
+                                <FamiliaText>00/00/0000</FamiliaText>
+                            </ContainerFamiliaText>
+                        </Item>
+
+                        <Item>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Familia ajudada:
+                                    </ContainerFamiliaHeader>
+                                <FamiliaText>
+                                    Familia aleatoria de sounou
+                                    </FamiliaText>
+                            </ContainerFamiliaText>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Data:
+                                </ContainerFamiliaHeader>
+                                <FamiliaText>00/00/0000</FamiliaText>
+                            </ContainerFamiliaText>
+                        </Item>
+
+                        <Item>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Familia ajudada:
+                                    </ContainerFamiliaHeader>
+                                <FamiliaText>
+                                    Familia aleatoria de sounou
+                                    </FamiliaText>
+                            </ContainerFamiliaText>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Data:
+                                </ContainerFamiliaHeader>
+                                <FamiliaText>00/00/0000</FamiliaText>
+                            </ContainerFamiliaText>
+                        </Item>
+
+                        <Item>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Familia ajudada:
+                                    </ContainerFamiliaHeader>
+                                <FamiliaText>
+                                    Familia aleatoria de sounou
+                                    </FamiliaText>
+                            </ContainerFamiliaText>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Data:
+                                </ContainerFamiliaHeader>
+                                <FamiliaText>00/00/0000</FamiliaText>
+                            </ContainerFamiliaText>
+                        </Item>
+
+                        <Item>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Familia ajudada:
+                                    </ContainerFamiliaHeader>
+                                <FamiliaText>
+                                    Familia aleatoria de sounou
+                                    </FamiliaText>
+                            </ContainerFamiliaText>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Data:
+                                </ContainerFamiliaHeader>
+                                <FamiliaText>00/00/0000</FamiliaText>
+                            </ContainerFamiliaText>
+                        </Item>
+
+                        <Item>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Familia ajudada:
+                                    </ContainerFamiliaHeader>
+                                <FamiliaText>
+                                    Familia aleatoria de sounou
+                                    </FamiliaText>
+                            </ContainerFamiliaText>
+                            <ContainerFamiliaText>
+                                <ContainerFamiliaHeader>
+                                    Data:
+                                </ContainerFamiliaHeader>
+                                <FamiliaText>00/00/0000</FamiliaText>
+                            </ContainerFamiliaText>
+                        </Item>
+
+                    </List>
+                </ContainerList>
+            </Body>
         </Container>
     );
 }

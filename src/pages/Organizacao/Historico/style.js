@@ -56,3 +56,59 @@ export const Body = styled.View`
     padding-right: 24px;
     padding-top:24px;
 `;
+
+export const Title = styled.Text`
+    font-family: Amaranth-Regular;
+    font-size: 40px;
+    color: #2bbf54;
+    text-align: center;
+    margin-bottom: 24px;
+`;
+
+export const List = styled.ScrollView`
+    height:90%;
+    width: 100%;
+`;
+
+export const ContainerList=styled.View`
+    height:90%;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 24px;
+`; 
+
+export const Item = styled.View`
+    height: 100px;
+    width: 100%;
+    background-color: #FFF;
+    justify-content:space-between;
+    padding-left:10px;
+    padding-right:10px;
+    border: 0.3px;
+    border-radius:8px;
+    border-color:#000;
+    margin-bottom:10px;
+    flex-direction: row;
+`;
+
+export const FamiliaText = styled.Text`
+    font-family: Amaranth-Regular;
+    font-size: 20px;
+`;
+
+export const ContainerFamiliaHeader = styled.Text`
+    font-family: Amaranth-Regular;
+    font-size: 16px;
+    color: #bfbfbf;
+    position: absolute;
+    top: 5px;
+`;
+
+export const ContainerFamiliaText = styled.View`
+    height: 100px;
+    /* background-color: #333; */
+    width: 40%;
+    flex-direction: column;
+    justify-content:center;
+    /* padding-top:2px; */
+`;

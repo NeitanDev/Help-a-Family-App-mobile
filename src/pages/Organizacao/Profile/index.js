@@ -23,7 +23,9 @@ export default function Profile() {
                     <TitlePage>Perfil</TitlePage>
                 </ContainerTitlePage>
             </Header>
-            <Body></Body>
+            <Body>
+                
+            </Body>
         </Container>
     );
 }

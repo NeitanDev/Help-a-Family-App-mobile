@@ -31,7 +31,6 @@ export default function Org() {
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
-
                     if (route.name === 'Profile') {
                         iconName = 'profile';
                         return <AntDesing name={iconName} size={size} color={color} />;
@@ -42,16 +41,13 @@ export default function Org() {
                         iconName = 'google-maps';
                         return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
                     }
-
-                    // You can return any component that you like here!
-                    
                 },
             })}
 
         >
             <Tab.Screen name="Profile" component={Profile} />
-            <Tab.Screen name="Historico" component={Historico} />
             <Tab.Screen name="Map" component={Maps} />
+            <Tab.Screen name="Historico" component={Historico} />
         </Tab.Navigator>
     );
 }
