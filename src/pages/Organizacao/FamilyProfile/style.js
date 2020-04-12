@@ -40,13 +40,21 @@ export const TitlePage = styled.Text`
     color: #fff;
 `;
 
-export const Body = styled.View`
+export const Body = styled.ScrollView`
     width: 100%;
     height: 89%;
     background-color: #FFF;
+    /* align-items: center; */
+    /* padding: 24px; */
+    /* border-radius: 50px; */
+`;
+
+export const Scroll = styled.View`
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
     align-items: center;
     padding: 24px;
-    /* border-radius: 50px; */
 `;
 
 export const ContentInfoFamily = styled.View`
@@ -106,4 +114,18 @@ export const Button = styled.TouchableOpacity`
     border-radius: 10px;
     align-items:center;
     justify-content:center;
+`;
+
+export const ButtonHistory = styled.TouchableOpacity`
+    width:100%;
+    height: 50px;
+    background-color: #2bbf54;
+    border-radius: 10px;
+    align-items:center;
+    justify-content:center;
+`;
+
+export const ButtonHistoryText = styled.Text`
+    font-size: 24px;
+    color: #FFF;
 `;

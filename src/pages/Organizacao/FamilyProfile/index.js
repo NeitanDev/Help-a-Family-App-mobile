@@ -21,7 +21,10 @@ import {
     ContainerTitleInfoFamily,
     TitleInfoFamily,
     ContentBunttons,
-    Button
+    Button,
+    ButtonHistory,
+    ButtonHistoryText,
+    Scroll,
 } from './style';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -44,48 +47,62 @@ export default function FamilyProfile() {
                 </ContainerTitlePage>
             </Header>
             <Body>
-                <ContentInfoFamily>
-                    <ContainerTitleInfoFamily>
-                        <TitleInfoFamily>Informações</TitleInfoFamily>
-                    </ContainerTitleInfoFamily>
-                    <TopInfoFamily>
-                        <View>
-                            <Title>Familia:</Title>
-                            <Description>Souza Ernandes</Description>
-                        </View>
-                        <View>
-                            <Title>Menbros:</Title>
-                            <Description>12</Description>
-                        </View>
-                    </TopInfoFamily>
-                    <Title>Chefe de Familia:</Title>
-                    <Description>Ernesto</Description>
-                    <LocalInfoFamily>
-                        <View>
-                            <Title>Endereço:</Title>
-                            <Description>R. Édson Petri</Description>
-                        </View>
-                        <View>
-                            <Title>Numero:</Title>
-                            <Description>205</Description>
-                        </View>
-                    </LocalInfoFamily>
-                    <Title>Mensagem:</Title>
-                    <Description>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</Description>
-                </ContentInfoFamily>
-                <ContentInfoFamily>
-                    <ContainerTitleInfoFamily>
-                        <TitleInfoFamily>Entre em contato</TitleInfoFamily>
-                    </ContainerTitleInfoFamily>
-                    <ContentBunttons>
-                        <Button>
-                            <MaterialCommunityIcons name="whatsapp" size={40} color="#FFF" />
-                        </Button>
-                        <Button>
-                            <MaterialCommunityIcons name="phone" size={40} color="#FFF" />
-                        </Button>
-                    </ContentBunttons>
-                </ContentInfoFamily>
+                <Scroll>
+                    <ContentInfoFamily>
+                        <ContainerTitleInfoFamily>
+                            <TitleInfoFamily>Informações</TitleInfoFamily>
+                        </ContainerTitleInfoFamily>
+                        <TopInfoFamily>
+                            <View>
+                                <Title>Familia:</Title>
+                                <Description>Souza Ernandes</Description>
+                            </View>
+                            <View>
+                                <Title>Menbros:</Title>
+                                <Description>12</Description>
+                            </View>
+                        </TopInfoFamily>
+                        <Title>Chefe de Familia:</Title>
+                        <Description>Ernesto</Description>
+                        <LocalInfoFamily>
+                            <View>
+                                <Title>Endereço:</Title>
+                                <Description>R. Édson Petri</Description>
+                            </View>
+                            <View>
+                                <Title>Numero:</Title>
+                                <Description>205</Description>
+                            </View>
+                        </LocalInfoFamily>
+                        <Title>Mensagem:</Title>
+                        <Description>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</Description>
+                    </ContentInfoFamily>
+                    <ContentInfoFamily>
+                        <ContainerTitleInfoFamily>
+                            <TitleInfoFamily>Entre em contato</TitleInfoFamily>
+                        </ContainerTitleInfoFamily>
+                        <ContentBunttons>
+                            <Button>
+                                <MaterialCommunityIcons name="whatsapp" size={40} color="#FFF" />
+                            </Button>
+                            <Button>
+                                <MaterialCommunityIcons name="phone" size={40} color="#FFF" />
+                            </Button>
+                        </ContentBunttons>
+                    </ContentInfoFamily>
+                    <ContentInfoFamily>
+                        <ContainerTitleInfoFamily>
+                            <TitleInfoFamily>Ajudamos essa Familia</TitleInfoFamily>
+                        </ContainerTitleInfoFamily>
+                        <ContentBunttons>
+                            <ButtonHistory>
+                                <ButtonHistoryText>
+                                    Add ao Histoico
+                            </ButtonHistoryText>
+                            </ButtonHistory>
+                        </ContentBunttons>
+                    </ContentInfoFamily>
+                </Scroll>
             </Body>
         </Container>
     );
