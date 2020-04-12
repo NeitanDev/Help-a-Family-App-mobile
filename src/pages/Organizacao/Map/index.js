@@ -74,15 +74,15 @@ export default function Map() {
                                     <TopFamili>
                                         <ContentNameFamili>
                                             <TitleNameFamily>Familia:</TitleNameFamily>
-                                            <NameFamily>Bezerra de Miranda</NameFamily>
+                                            <NameFamily>Souza Ernandes</NameFamily>
                                         </ContentNameFamili>
                                         <ContentNameFamili>
                                             <TitleNameFamily>Menbros:</TitleNameFamily>
-                                            <NameFamily>15</NameFamily>
+                                            <NameFamily>12</NameFamily>
                                         </ContentNameFamili>
                                     </TopFamili>
                                     <TitleNameFamily>Chefe de Familia:</TitleNameFamily>
-                                    <NameFamily>Walter</NameFamily>
+                                    <NameFamily>Ernesto</NameFamily>
                                     <TitleNameFamily>Mensagem:</TitleNameFamily>
                                     <NameFamily>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</NameFamily>
                                 </CalloutDetails>

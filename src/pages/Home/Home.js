@@ -101,8 +101,9 @@ export default function Home() {
                 <Form>
                     <ButtonLogin
                         onPress={() => {
-                            setVivibleModal(true);
-                            setQual('Login')
+                            //setVivibleModal(true);
+                            //setQual('Login');
+                            navigation.navigate(`LoginOrg`);
                         }}
                     >
                         <ButtonLoginText>
