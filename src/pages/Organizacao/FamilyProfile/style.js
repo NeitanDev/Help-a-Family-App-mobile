@@ -55,6 +55,7 @@ export const ContentInfoFamily = styled.View`
     background-color: #f2f2f2;
     border-radius: 10px;
     padding:12px;
+    margin-bottom: 24px;
 `;
 
 export const TopInfoFamily = styled.View`
@@ -90,4 +91,19 @@ export const LocalInfoFamily = styled.View`
     width:100%;
     justify-content: space-between;
     flex-direction: row;
+`;
+
+export const ContentBunttons = styled.View`
+    width: 100%;
+    align-items:center;
+    justify-content: space-between;
+    flex-direction: row;
+`;
+export const Button = styled.TouchableOpacity`
+    width: 45%;
+    height: 50px;
+    background-color: #2bbf54;
+    border-radius: 10px;
+    align-items:center;
+    justify-content:center;
 `;

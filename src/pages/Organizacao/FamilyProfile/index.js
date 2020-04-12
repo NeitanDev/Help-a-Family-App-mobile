@@ -3,6 +3,8 @@ import { View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import {
     Container,
     Header,
@@ -18,6 +20,8 @@ import {
     LocalInfoFamily,
     ContainerTitleInfoFamily,
     TitleInfoFamily,
+    ContentBunttons,
+    Button
 } from './style';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -68,6 +72,19 @@ export default function FamilyProfile() {
                     </LocalInfoFamily>
                     <Title>Mensagem:</Title>
                     <Description>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</Description>
+                </ContentInfoFamily>
+                <ContentInfoFamily>
+                    <ContainerTitleInfoFamily>
+                        <TitleInfoFamily>Entre em contato</TitleInfoFamily>
+                    </ContainerTitleInfoFamily>
+                    <ContentBunttons>
+                        <Button>
+                            <MaterialCommunityIcons name="whatsapp" size={40} color="#FFF" />
+                        </Button>
+                        <Button>
+                            <MaterialCommunityIcons name="phone" size={40} color="#FFF" />
+                        </Button>
+                    </ContentBunttons>
                 </ContentInfoFamily>
             </Body>
         </Container>
