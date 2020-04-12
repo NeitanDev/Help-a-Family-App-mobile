@@ -74,13 +74,13 @@ export const IconFamily = styled.Image`
 
 export const NameFamily = styled.Text`
     color: #000;
-    font-family: Amaranth-Regular;
+    /* font-family: Amaranth-Regular; */
     margin-bottom:2px;
 `;
 
 export const TitleNameFamily = styled.Text`
     color: #bfbfbf;
-    font-family: Amaranth-Regular;
+    /* font-family: Amaranth-Regular; */
 `;
 
 export const ContentNameFamili = styled.View`

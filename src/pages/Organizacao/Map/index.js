@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
     callout: {
         width: 260,
-        height: 100,
+        height: 130,
         borderRadius: 10,
     }
 });

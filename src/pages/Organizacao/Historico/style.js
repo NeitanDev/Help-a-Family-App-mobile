@@ -58,7 +58,7 @@ export const Body = styled.View`
 `;
 
 export const Title = styled.Text`
-    font-family: Amaranth-Regular;
+    /* font-family: Amaranth-Regular; */
     font-size: 40px;
     color: #2bbf54;
     text-align: center;
@@ -92,12 +92,12 @@ export const Item = styled.View`
 `;
 
 export const FamiliaText = styled.Text`
-    font-family: Amaranth-Regular;
-    font-size: 20px;
+    /* font-family: Amaranth-Regular; */
+    font-size: 18px;
 `;
 
 export const ContainerFamiliaHeader = styled.Text`
-    font-family: Amaranth-Regular;
+    /* font-family: Amaranth-Regular; */
     font-size: 16px;
     color: #bfbfbf;
     position: absolute;

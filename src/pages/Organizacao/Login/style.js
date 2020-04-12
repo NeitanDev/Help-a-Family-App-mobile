@@ -100,7 +100,7 @@ export const Input =  styled.TextInput`
     border-radius:8px;
     padding-left:10px;
     padding-right:8px;
-    font-family: Amaranth-Regular;
+    /* font-family: Amaranth-Regular; */
     font-size: 24px;
     /* color: #2bbf54; */
     margin-top: 24px;

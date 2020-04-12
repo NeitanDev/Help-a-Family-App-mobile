@@ -45,5 +45,49 @@ export const Body = styled.View`
     height: 89%;
     background-color: #FFF;
     align-items: center;
+    padding: 24px;
     /* border-radius: 50px; */
+`;
+
+export const ContentInfoFamily = styled.View`
+    width:100%;
+    /* height:60%; */
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding:12px;
+`;
+
+export const TopInfoFamily = styled.View`
+     width:100%;
+     justify-content: space-between;
+     flex-direction: row;
+     /* margin-bottom:5px; */
+`;
+
+export const TitleInfoFamily = styled.Text`
+    font-size: 24px;
+    text-align:center;
+`;
+
+export const ContainerTitleInfoFamily = styled.View`
+    width: 100%;
+    align-items:center;
+    margin-bottom:18px;
+`;
+
+export const Title = styled.Text`
+    color:#000;
+    font-weight: bold;
+`;
+
+export const Description = styled.Text`
+    color: #41414d;
+    margin-bottom:15px;
+
+`;
+
+export const LocalInfoFamily = styled.View`
+    width:100%;
+    justify-content: space-between;
+    flex-direction: row;
 `;
