@@ -45,5 +45,5 @@ export const Body = styled.View`
     height: 89%;
     background-color: #FFF;
     align-items: center;
-    border-radius: 50px;
+    /* border-radius: 50px; */
 `;
