@@ -127,9 +127,6 @@ export default function Cadastro() {
                         <TitleInput>Coordenadas:</TitleInput>
                         <ContainerInputCord>
                             <CordsInupt
-                                onPress={() => {
-                                    loadPosition();
-                                }}
                                 placeholder="Latitude"
                                 keyboardType={'numeric'}
                                 value={`${latitude}`}

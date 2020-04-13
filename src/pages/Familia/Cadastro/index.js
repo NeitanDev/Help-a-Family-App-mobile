@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
-
+import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import {
     Container,
     Body,
@@ -22,6 +22,32 @@ import {
 } from './styles';
 
 export default function Cadastro() {
+
+    const [currentRegion, setCurrentRegion] = useState(null);
+    const [latitude, setLatitude] = useState('');
+    const [longitude, setLongitude] = useState('');
+
+
+    async function loadPosition() {
+        const { granted } = await requestPermissionsAsync();
+
+        if (granted) {
+            const { coords } = await getCurrentPositionAsync({
+                enableHighAccuracy: true,
+            });
+
+            const { latitude, longitude } = coords;
+            setLatitude(latitude);
+            setLongitude(longitude);
+            setCurrentRegion({
+                latitude,
+                longitude,
+                latitudeDelta: 0.0001,
+                longitudeDelta: 0.0001,
+            })
+        }
+    }
+
     return (
         <Container>
             <Header>
@@ -121,14 +147,25 @@ export default function Cadastro() {
                             <CordsInupt
                                 placeholder="Latitude"
                                 keyboardType={'numeric'}
+                                value={`${latitude}`}
+                                onChangeText={setLatitude}
                             />
                             <CordsInupt
                                 placeholder="Longitude"
                                 keyboardType={'numeric'}
+                                value={`${longitude}`}
+                                onChangeText={setLongitude}
                             />
                         </ContainerInputCord>
                     </ContainerInput>
-
+                    <Button
+                        onPress={() => {
+                            loadPosition();
+                        }}
+                        style={{ backgroundColor: '#FFF', borderWidth: 0.3, borderColor: '#4d4d4d' }}
+                    >
+                        <ButtonText style={{ color: '#b3b3b3' }}>Preencher coordenadas automaticamente</ButtonText>
+                    </Button>
                     <ContainerInput>
                         <TitleInput>Endereço:</TitleInput>
                         <Inupt
