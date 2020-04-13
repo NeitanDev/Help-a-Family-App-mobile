@@ -55,7 +55,9 @@ export const Scroll = styled.View`
     height: 100%;
     background-color: #FFF;
     align-items: center;
-    padding: 24px;
+    padding-top: 24px;
+    padding-left:24px;
+    padding-right:24px;
     /* border-radius: 50px; */
 `;
 
