@@ -114,7 +114,7 @@ export default function Cadastro() {
                     <ContainerInput style={{ height: 230 }}>
                         <TitleInput>Reacado para as entidades (opcional):</TitleInput>
                         <Inupt
-                            placeholder="Ex: Somos uma familia que necessita..."
+                            placeholder="Ex: Somos uma familia que necessita de ajuda com cestas basicas..."
                             autoCorrect={true}
                             multiline={true}
                             numberOfLines={4}
