@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, AsyncStorage } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 
 // import { Container } from './styles';
@@ -21,6 +21,22 @@ import {
 } from './style';
 
 export default function Historico() {
+
+    useEffect(() => {
+        async function _retrieveData() {
+            try {
+                const value = await AsyncStorage.getItem('@MySuperStore:key');
+                if (value !== null) {
+                    // We have data!!
+                    console.log(value);
+                }
+            } catch (error) {
+                console.log('deu merda na hora de buscar' + error);
+            }
+        };
+        _retrieveData();
+    }, []);
+
     return (
         <Container>
             <Header>

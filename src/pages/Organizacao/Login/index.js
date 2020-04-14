@@ -24,6 +24,32 @@ import {
 export default function Login() {
 
     const navigation = useNavigation();
+
+    async function handleLogin() {
+        async function _storeData() {
+            try {
+                await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+                console.log("salvei essa bosta");
+            } catch (error) {
+                console.log('deu merda na hora de criar' + error);
+            }
+        };
+
+        async function _retrieveData() {
+            try {
+                const value = await AsyncStorage.getItem('@MySuperStore:key');
+                if (value !== null) {
+                    // We have data!!
+                    console.log(value);
+                }
+            } catch (error) {
+                console.log('deu merda na hora de buscar' + error);
+            }
+        };
+
+        // _storeData();
+        _retrieveData();
+    }
     return (
         <Container>
             <Header>
@@ -54,7 +80,7 @@ export default function Login() {
                         autoCorrect={false}
                         autoCapitalize="none"
                     />
-                    <Button onPress={() => navigation.navigate('Org')}>
+                    <Button onPress={() => { handleLogin(); navigation.navigate('Org'); }}>
                         <ButtonText>Login</ButtonText>
                     </Button>
                 </Form>

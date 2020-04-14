@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, Modal } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, TouchableOpacity, Modal, AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../assets/LogoVerde.png';
 import Solidariedade from '../../assets/solidariedade.jpg';
@@ -40,6 +40,21 @@ export default function Home() {
     const [qual, setQual] = useState('');
 
     const navigation = useNavigation();
+
+    useEffect(() => {
+        async function _retrieveData() {
+            try {
+                const value = await AsyncStorage.getItem('@MySuperStore:key');
+                if (value !== null) {
+                    // We have data!!
+                    console.log(value);
+                }
+            } catch (error) {
+                console.log('deu merda na hora de buscar' + error);
+            }
+        };
+        _retrieveData();
+    }, []);
 
     return (
         <Container>
