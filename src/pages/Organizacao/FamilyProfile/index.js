@@ -57,37 +57,45 @@ export default function FamilyProfile() {
                         <TopInfoFamily>
                             <View>
                                 <Title>Familia:</Title>
-                <Description>{fam.sobrenome}</Description>
+                                <Description>{fam.sobrenome}</Description>
                             </View>
                             <View>
                                 <Title>Menbros:</Title>
-                <Description>{fam.qtd_membros}</Description>
+                                <Description>{fam.qtd_membros}</Description>
                             </View>
                         </TopInfoFamily>
                         <Title>Chefe de Familia:</Title>
-                <Description>{fam.nome}</Description>
+                        <Description>{fam.nome}</Description>
                         <LocalInfoFamily>
                             <View>
                                 <Title>Endereço:</Title>
-                <Description>{fam.endereco}</Description>
+                                <Description>{fam.endereco}</Description>
                             </View>
                             <View>
                                 <Title>Numero:</Title>
-                <Description>{fam.number}</Description>
+                                <Description>{fam.number}</Description>
                             </View>
                         </LocalInfoFamily>
                         <Title>Mensagem:</Title>
-                <Description>{fam.mensagem}</Description>
+                        <Description>{fam.mensagem}</Description>
                     </ContentInfoFamily>
                     <ContentInfoFamily>
                         <ContainerTitleInfoFamily>
                             <TitleInfoFamily>Entre em contato</TitleInfoFamily>
                         </ContainerTitleInfoFamily>
                         <ContentBunttons>
-                            <Button>
+                            <Button
+                                onPress={() => {
+                                    Linking.openURL(`whatsapp://send?phone=+55${fam.whatsapp}`);
+                                }}
+                            >
                                 <MaterialCommunityIcons name="whatsapp" size={40} color="#FFF" />
                             </Button>
-                            <Button>
+                            <Button
+                                onPress={() => {
+                                    Linking.openURL(`tel:${fam.telefone}`)
+                                }}
+                            >
                                 <MaterialCommunityIcons name="phone" size={40} color="#FFF" />
                             </Button>
                         </ContentBunttons>
