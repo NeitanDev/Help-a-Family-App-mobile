@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Alert } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
+import api from '../../../services/api';
+import { useNavigation } from '@react-navigation/native';
+
 import {
     Container,
     Body,
@@ -22,12 +25,21 @@ import {
 } from './styles';
 
 export default function Cadastro() {
-
-    const [currentRegion, setCurrentRegion] = useState(null);
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
+    const [chave, setChave] = useState('');
+    const [senha, setSenha] = useState('');
+    const [nome, setNome] = useState('');
+    const [sobrenome, setSobrenome] = useState('');
+    const [qtd, setQtd_membros] = useState('');
+    const [mensagem, setMensagem] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [whatsapp, setWhatsapp] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [num, setNumber] = useState('');
 
-
+    const navigation = useNavigation();
+    
     async function loadPosition() {
         const { granted } = await requestPermissionsAsync();
 
@@ -39,13 +51,40 @@ export default function Cadastro() {
             const { latitude, longitude } = coords;
             setLatitude(latitude);
             setLongitude(longitude);
-            setCurrentRegion({
-                latitude,
-                longitude,
-                latitudeDelta: 0.0001,
-                longitudeDelta: 0.0001,
-            })
         }
+    };
+
+
+    async function createFamily() {
+        const data = {
+            chave,
+            senha,
+            nome,
+            sobrenome,
+            qtd_membros: parseInt(qtd),
+            mensagem,
+            telefone,
+            whatsapp,
+            endereco,
+            number: parseInt(num),
+            latitude,
+            longitude,
+        };
+        // console.log(data);
+        const response = await api.post('/create/familia', data);
+        // console.log(response);
+        if (response) {
+            Alert.alert(
+                'Cadastro Realizado com sucesso',
+                'Agora vc pode ser localizado por entidades de doações para lhe ajudar',
+                [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+                ],
+                { cancelable: false }
+            );
+            navigation.navigate('Home');
+        }
+
     }
 
     return (
@@ -67,6 +106,8 @@ export default function Cadastro() {
                             placeholder="Ex: familiaSou..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={chave}
+                            onChangeText={setChave}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -75,6 +116,8 @@ export default function Cadastro() {
                             placeholder="Ex: familiaSou123..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={senha}
+                            onChangeText={setSenha}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -91,6 +134,8 @@ export default function Cadastro() {
                             placeholder="Ex: Jailson..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={nome}
+                            onChangeText={setNome}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -99,6 +144,8 @@ export default function Cadastro() {
                             placeholder="Ex: Souza da Silva..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={sobrenome}
+                            onChangeText={setSobrenome}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -107,8 +154,9 @@ export default function Cadastro() {
                             placeholder="Ex: 4"
                             autoCorrect={false}
                             autoCapitalize="none"
-                            // maxLength={4}
                             keyboardType={'numeric'}
+                            value={`${qtd}`}
+                            onChangeText={setQtd_membros}
                         />
                     </ContainerInput>
                     <ContainerInput style={{ height: 200 }}>
@@ -118,9 +166,10 @@ export default function Cadastro() {
                             autoCorrect={true}
                             multiline={true}
                             numberOfLines={4}
-                            // autoCapitalize="none"
                             maxLength={255}
                             style={{ height: 170, textAlignVertical: "top", paddingTop: 10, paddingBottom: 10 }}
+                            value={mensagem}
+                            onChangeText={setMensagem}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -128,9 +177,10 @@ export default function Cadastro() {
                         <Inupt
                             placeholder="Ex: (11) 90000-0000"
                             autoCorrect={true}
-                            // autoCapitalize="none"
                             maxLength={255}
                             keyboardType={'numeric'}
+                            value={whatsapp}
+                            onChangeText={setWhatsapp}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -138,9 +188,10 @@ export default function Cadastro() {
                         <Inupt
                             placeholder="Ex: (11) 90000-0000"
                             autoCorrect={true}
-                            // autoCapitalize="none"
                             maxLength={255}
                             keyboardType={'numeric'}
+                            value={telefone}
+                            onChangeText={setTelefone}
                         />
                     </ContainerInput>
 
@@ -174,21 +225,22 @@ export default function Cadastro() {
                         <Inupt
                             placeholder="Ex: R. Edson Petri"
                             autoCorrect={true}
-                            // autoCapitalize="none"
                             maxLength={255}
+                            value={endereco}
+                            onChangeText={setEndereco}
                         />
                     </ContainerInput>
                     <ContainerInput>
-                        <TitleInput>Número:</TitleInput>
+                        <TitleInput>Número da residencia:</TitleInput>
                         <Inupt
                             placeholder="Ex: 149"
                             autoCorrect={true}
-                            // autoCapitalize="none"
-                            // maxLength={255}
                             keyboardType={'numeric'}
+                            value={`${num}`}
+                            onChangeText={setNumber}
                         />
                     </ContainerInput>
-                    <Button>
+                    <Button onPress={createFamily}>
                         <ButtonText>Cadastrar</ButtonText>
                     </Button>
                 </Scroll>
