@@ -100,7 +100,7 @@ export const Inupt = styled.TextInput`
     width: 100%;
     height: 50px;
     background-color: #FFF;
-    justify-content:flex-start;
+    justify-content:center;
     align-items: center;
     border: 0.2px;
     border-radius:8px;

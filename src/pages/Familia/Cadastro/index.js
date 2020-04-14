@@ -111,7 +111,7 @@ export default function Cadastro() {
                             keyboardType={'numeric'}
                         />
                     </ContainerInput>
-                    <ContainerInput style={{ height: 230 }}>
+                    <ContainerInput style={{ height: 200 }}>
                         <TitleInput>Reacado para as entidades (opcional):</TitleInput>
                         <Inupt
                             placeholder="Ex: Somos uma familia que necessita de ajuda com cestas basicas..."
@@ -120,7 +120,7 @@ export default function Cadastro() {
                             numberOfLines={4}
                             // autoCapitalize="none"
                             maxLength={255}
-                            style={{ height: 200, textAlignVertical: "top", paddingTop: 10, paddingBottom: 10 }}
+                            style={{ height: 170, textAlignVertical: "top", paddingTop: 10, paddingBottom: 10 }}
                         />
                     </ContainerInput>
                     <ContainerInput>
