@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
-
+import { useNavigation } from '@react-navigation/native';
+import api from '../../../services/api';
 
 import {
     Container,
@@ -24,10 +25,18 @@ import {
 } from './styles';
 
 export default function Cadastro() {
-    const [currentRegion, setCurrentRegion] = useState(null);
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [whatsapp, setWhatsapp] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [number, setNumber] = useState('');
 
+    const navigation = useNavigation();
 
     async function loadPosition() {
         const { granted } = await requestPermissionsAsync();
@@ -40,12 +49,33 @@ export default function Cadastro() {
             const { latitude, longitude } = coords;
             setLatitude(latitude);
             setLongitude(longitude);
-            setCurrentRegion({
-                latitude,
-                longitude,
-                latitudeDelta: 0.0001,
-                longitudeDelta: 0.0001,
-            })
+        }
+    }
+
+    async function createOrg() {
+        const data = {
+            email,
+            senha,
+            nome,
+            descricao,
+            telefone,
+            whatsapp,
+            latitude,
+            longitude,
+            endereco,
+            number: parseInt(number),
+        };
+        const response = await api.post('/create/organizacao', data);
+        if (response) {
+            Alert.alert(
+                'Cadastro Realizado com sucesso',
+                `Agora a entidade ${nome} pode fazer o Login, e assim ver as familias que vc pode ajudar`,
+                [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+                ],
+                { cancelable: false }
+            );
+            navigation.navigate('Home');
         }
     }
 
@@ -68,6 +98,8 @@ export default function Cadastro() {
                             placeholder="Ex: Entidade@gmail.com..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={email}
+                            onChangeText={setEmail}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -76,6 +108,8 @@ export default function Cadastro() {
                             placeholder="Ex: entidade123..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={senha}
+                            onChangeText={setSenha}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -92,6 +126,8 @@ export default function Cadastro() {
                             placeholder="Ex: Entidade de doações..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={nome}
+                            onChangeText={setNome}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -100,6 +136,8 @@ export default function Cadastro() {
                             placeholder="Ex: Doamos cestas basicas..."
                             autoCorrect={false}
                             autoCapitalize="none"
+                            value={descricao}
+                            onChangeText={setDescricao}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -110,6 +148,8 @@ export default function Cadastro() {
                             // autoCapitalize="none"
                             maxLength={255}
                             keyboardType={'numeric'}
+                            value={whatsapp}
+                            onChangeText={setWhatsapp}
                         />
                     </ContainerInput>
                     <ContainerInput>
@@ -120,6 +160,8 @@ export default function Cadastro() {
                             // autoCapitalize="none"
                             maxLength={255}
                             keyboardType={'numeric'}
+                            value={telefone}
+                            onChangeText={setTelefone}
                         />
                     </ContainerInput>
 
@@ -153,22 +195,22 @@ export default function Cadastro() {
                         <Inupt
                             placeholder="Ex: R. Edson Petri"
                             autoCorrect={true}
-                            // autoCapitalize="none"
                             maxLength={255}
+                            value={endereco}
+                            onChangeText={setEndereco}
                         />
                     </ContainerInput>
                     <ContainerInput>
-                        <TitleInput>Número:</TitleInput>
+                        <TitleInput>Número da sede da organização:</TitleInput>
                         <Inupt
                             placeholder="Ex: 149"
                             autoCorrect={true}
-                            // autoCapitalize="none"
-                            // maxLength={255}
-
                             keyboardType={'numeric'}
+                            value={number}
+                            onChangeText={setNumber}
                         />
                     </ContainerInput>
-                    <Button>
+                    <Button onPress={createOrg}>
                         <ButtonText>Cadastrar</ButtonText>
                     </Button>
                 </Scroll>

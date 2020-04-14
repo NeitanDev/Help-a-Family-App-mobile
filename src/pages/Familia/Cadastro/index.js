@@ -70,9 +70,9 @@ export default function Cadastro() {
             latitude,
             longitude,
         };
-        // console.log(data);
+
         const response = await api.post('/create/familia', data);
-        // console.log(response);
+        
         if (response) {
             Alert.alert(
                 'Cadastro Realizado com sucesso',
