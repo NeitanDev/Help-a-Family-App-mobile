@@ -76,12 +76,12 @@ export default function Map() {
                     <MapView initialRegion={currentRegion} style={styles.mapStyle}>
                         {family.map(fam => (
                             <Marker key={fam.id} coordinate={{ latitude: parseFloat(fam.latitude), longitude: parseFloat(fam.longitude) }}>
-                                
+
                                 {/*console.log(parseFloat(fam.latitude)+" "+parseFloat(fam.longitude))*/}
                                 <ContainerIconFamily>
                                     <IconFamily source={FamiliIcon} />
                                 </ContainerIconFamily>
-                                <Callout style={styles.callout} onPress={() => navigation.navigate('FamilyProfile')}>
+                                <Callout style={styles.callout} onPress={() => navigation.navigate('FamilyProfile', { fam })}>
                                     <CalloutDetails>
                                         <TopFamili>
                                             <ContentNameFamili>

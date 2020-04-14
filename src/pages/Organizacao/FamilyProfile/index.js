@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, TouchableOpacity, Linking } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -11,7 +11,7 @@ import {
     ContainerLogo,
     Logo,
     ContainerTitlePage,
-    TitlePage,
+    // TitlePage,
     Body,
     ContentInfoFamily,
     TopInfoFamily,
@@ -31,6 +31,8 @@ import {
 export default function FamilyProfile() {
 
     const navigation = useNavigation();
+    const route = useRoute();
+    const fam = route.params.fam;
 
     return (
         <Container>
@@ -55,27 +57,27 @@ export default function FamilyProfile() {
                         <TopInfoFamily>
                             <View>
                                 <Title>Familia:</Title>
-                                <Description>Souza Ernandes</Description>
+                <Description>{fam.sobrenome}</Description>
                             </View>
                             <View>
                                 <Title>Menbros:</Title>
-                                <Description>12</Description>
+                <Description>{fam.qtd_membros}</Description>
                             </View>
                         </TopInfoFamily>
                         <Title>Chefe de Familia:</Title>
-                        <Description>Ernesto</Description>
+                <Description>{fam.nome}</Description>
                         <LocalInfoFamily>
                             <View>
                                 <Title>Endereço:</Title>
-                                <Description>R. Édson Petri</Description>
+                <Description>{fam.endereco}</Description>
                             </View>
                             <View>
                                 <Title>Numero:</Title>
-                                <Description>205</Description>
+                <Description>{fam.number}</Description>
                             </View>
                         </LocalInfoFamily>
                         <Title>Mensagem:</Title>
-                        <Description>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</Description>
+                <Description>{fam.mensagem}</Description>
                     </ContentInfoFamily>
                     <ContentInfoFamily>
                         <ContainerTitleInfoFamily>
