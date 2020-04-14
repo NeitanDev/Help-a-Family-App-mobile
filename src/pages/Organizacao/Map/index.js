@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { View, StyleSheet, Text } from 'react-native';
-import Constants from 'expo-constants';
+// import Constants from 'expo-constants';
 import Logosounou from '../../../assets/LogoVerde.png';
 import FamiliIcon from '../../../assets/FamiliaModal.png';
 import { useNavigation } from '@react-navigation/native';
+import api from '../../../services/api';
 
 import {
     Container,
@@ -31,6 +32,8 @@ export default function Map() {
     const [latitude, setLatitude] = useState(-23.2730918);
     const [longitude, setLongitude] = useState(-46.5902931);
 
+    const [family, setFamily] = useState([]);
+
     useEffect(() => {
         async function loadPosition() {
             const { granted } = await requestPermissionsAsync();
@@ -49,8 +52,14 @@ export default function Map() {
                 })
             }
         }
+        loadFamily();
         loadPosition();
     }, []);
+
+    async function loadFamily() {
+        const response = await api.get('/map/familyList');
+        setFamily(response.data);
+    }
 
     return (
         <Container>
@@ -65,29 +74,34 @@ export default function Map() {
             <Body>
                 <View style={styles.container}>
                     <MapView initialRegion={currentRegion} style={styles.mapStyle}>
-                        <Marker coordinate={{ latitude, longitude }}>
-                            <ContainerIconFamily>
-                                <IconFamily source={FamiliIcon} />
-                            </ContainerIconFamily>
-                            <Callout style={styles.callout} onPress={() => navigation.navigate('FamilyProfile')}>
-                                <CalloutDetails>
-                                    <TopFamili>
-                                        <ContentNameFamili>
-                                            <TitleNameFamily>Familia:</TitleNameFamily>
-                                            <NameFamily>Souza Ernandes</NameFamily>
-                                        </ContentNameFamili>
-                                        <ContentNameFamili>
-                                            <TitleNameFamily>Menbros:</TitleNameFamily>
-                                            <NameFamily>12</NameFamily>
-                                        </ContentNameFamili>
-                                    </TopFamili>
-                                    <TitleNameFamily>Chefe de Familia:</TitleNameFamily>
-                                    <NameFamily>Ernesto</NameFamily>
-                                    <TitleNameFamily>Mensagem:</TitleNameFamily>
-                                    <NameFamily>somos uma Familia muito carente e precisamos de ajuda nessa pan demia</NameFamily>
-                                </CalloutDetails>
-                            </Callout>
-                        </Marker>
+                        {family.map(fam => (
+                            <Marker key={fam.id} coordinate={{ latitude: parseFloat(fam.latitude), longitude: parseFloat(fam.longitude) }}>
+                                
+                                {/*console.log(parseFloat(fam.latitude)+" "+parseFloat(fam.longitude))*/}
+                                <ContainerIconFamily>
+                                    <IconFamily source={FamiliIcon} />
+                                </ContainerIconFamily>
+                                <Callout style={styles.callout} onPress={() => navigation.navigate('FamilyProfile')}>
+                                    <CalloutDetails>
+                                        <TopFamili>
+                                            <ContentNameFamili>
+                                                <TitleNameFamily>Familia:</TitleNameFamily>
+                                                <NameFamily>{fam.sobrenome}</NameFamily>
+                                            </ContentNameFamili>
+                                            <ContentNameFamili>
+                                                <TitleNameFamily>Menbros:</TitleNameFamily>
+                                                <NameFamily>{fam.qtd_membros}</NameFamily>
+                                            </ContentNameFamili>
+                                        </TopFamili>
+                                        <TitleNameFamily>Chefe de Familia:</TitleNameFamily>
+                                        <NameFamily>{fam.nome}</NameFamily>
+                                        <TitleNameFamily>Mensagem:</TitleNameFamily>
+                                        <NameFamily>{fam.mensagem}</NameFamily>
+                                    </CalloutDetails>
+                                </Callout>
+                            </Marker>
+                        ))}
+
                     </MapView>
                 </View>
             </Body>
