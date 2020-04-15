@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import React, { useState } from 'react';
+import { AsyncStorage, Alert } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import fam from '../../../assets/organizaçãomodal.png';
 import { useNavigation } from '@react-navigation/native';
+import api from '../../../services/api';
 
 import {
     Container,
@@ -23,33 +24,44 @@ import {
 
 export default function Login() {
 
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
     const navigation = useNavigation();
 
+    async function _storeData(id) {
+        try {
+            await AsyncStorage.setItem('@MySuperStore:key', id.toString());
+            console.log("salvei essa bosta");
+        } catch (error) {
+            console.log('deu merda na hora de criar' + error);
+        }
+    };
+
     async function handleLogin() {
-        async function _storeData() {
-            try {
-                await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
-                console.log("salvei essa bosta");
-            } catch (error) {
-                console.log('deu merda na hora de criar' + error);
-            }
+        const data = {
+            email,
+            senha
         };
+        try {
+            const response = await api.post('/login/org', data);
+            const fam = response.data;
+            _storeData(fam.id);
+            navigation.navigate('Org');
+        } catch (err) {
+            Alert.alert(
+                'Email ou senha incorretos',
+                `Insira os corretamente`,
 
-        async function _retrieveData() {
-            try {
-                const value = await AsyncStorage.getItem('@MySuperStore:key');
-                if (value !== null) {
-                    // We have data!!
-                    console.log(value);
-                }
-            } catch (error) {
-                console.log('deu merda na hora de buscar' + error);
-            }
-        };
-
-        // _storeData();
-        _retrieveData();
+                [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+                ],
+                { cancelable: false }
+            );
+            // console.log(err);
+        }
     }
+
     return (
         <Container>
             <Header>
@@ -72,6 +84,8 @@ export default function Login() {
                         placeholder="Email da entidade"
                         autoCompleteType="email"
                         autoCapitalize="none"
+                        value={email}
+                        onChangeText={setEmail}
                     />
                     <Input
                         placeholder="Senha"
@@ -79,8 +93,10 @@ export default function Login() {
                         secureTextEntry={true}
                         autoCorrect={false}
                         autoCapitalize="none"
+                        value={senha}
+                        onChangeText={setSenha}
                     />
-                    <Button onPress={() => { handleLogin(); navigation.navigate('Org'); }}>
+                    <Button onPress={() => { handleLogin() }}>
                         <ButtonText>Login</ButtonText>
                     </Button>
                 </Form>

@@ -34,24 +34,25 @@ export default function Map() {
 
     const [family, setFamily] = useState([]);
 
-    useEffect(() => {
-        async function loadPosition() {
-            const { granted } = await requestPermissionsAsync();
+    async function loadPosition() {
+        const { granted } = await requestPermissionsAsync();
 
-            if (granted) {
-                const { coords } = await getCurrentPositionAsync({
-                    enableHighAccuracy: true,
-                });
+        if (granted) {
+            const { coords } = await getCurrentPositionAsync({
+                enableHighAccuracy: true,
+            });
 
-                const { latitude, longitude } = coords;
-                setCurrentRegion({
-                    latitude,
-                    longitude,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01,
-                })
-            }
+            const { latitude, longitude } = coords;
+            setCurrentRegion({
+                latitude,
+                longitude,
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01,
+            })
         }
+    }
+
+    useEffect(() => {
         loadFamily();
         loadPosition();
     }, []);
@@ -76,8 +77,6 @@ export default function Map() {
                     <MapView initialRegion={currentRegion} style={styles.mapStyle}>
                         {family.map(fam => (
                             <Marker key={fam.id} coordinate={{ latitude: parseFloat(fam.latitude), longitude: parseFloat(fam.longitude) }}>
-
-                                {/*console.log(parseFloat(fam.latitude)+" "+parseFloat(fam.longitude))*/}
                                 <ContainerIconFamily>
                                     <IconFamily source={FamiliIcon} />
                                 </ContainerIconFamily>

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { AsyncStorage } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
+import api from '../../../services/api';
 
-// import { Container } from './styles';
 import {
     Container,
     Header,
@@ -22,20 +22,35 @@ import {
 
 export default function Historico() {
 
-    useEffect(() => {
-        async function _retrieveData() {
-            try {
-                const value = await AsyncStorage.getItem('@MySuperStore:key');
-                if (value !== null) {
-                    // We have data!!
-                    console.log(value);
-                }
-            } catch (error) {
-                console.log('deu merda na hora de buscar' + error);
+    const [orgId, setOrgId] = useState(0);
+    const [history, setHistory] = useState([]);
+
+    async function _retrieveData() {
+        try {
+            const value = await AsyncStorage.getItem('@MySuperStore:key');
+            if (value !== null) {
+                await setOrgId(value);
+                console.log(value);
             }
-        };
+        } catch (error) {
+            console.log('deu merda na hora de buscar' + error);
+        }
+    };
+
+    useEffect(() => {
         _retrieveData();
+        loadHistiry();
     }, []);
+
+    async function loadHistiry() {
+        const response = await api.get('/historico/orgList', {
+            headers: {
+                authorization: orgId,
+            },
+        });
+        setHistory(response.data);
+        console.log("chamei essa merda");
+    };
 
     return (
         <Container>
@@ -53,111 +68,26 @@ export default function Historico() {
                 </Title>
                 <ContainerList>
                     <List showsVerticalScrollIndicator={false}>
-
-                        <Item>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Familia ajudada:
+                        {history.map(item => (
+                            <Item key={item.id}>
+                                <ContainerFamiliaText>
+                                    <ContainerFamiliaHeader>
+                                        Familia ajudada:
                                     </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    Familia aleatoria de sounou
-                                </FamiliaText>
-                            </ContainerFamiliaText>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Data:
-                                </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    00/00/0000
-                                </FamiliaText>
-                            </ContainerFamiliaText>
-                        </Item>
-
-                        <Item>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Familia ajudada:
-                                    </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    Familia aleatoria de sounou
+                                    <FamiliaText>
+                                        {item.sobrenome}
                                     </FamiliaText>
-                            </ContainerFamiliaText>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Data:
-                                </ContainerFamiliaHeader>
-                                <FamiliaText>00/00/0000</FamiliaText>
-                            </ContainerFamiliaText>
-                        </Item>
-
-                        <Item>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Familia ajudada:
+                                </ContainerFamiliaText>
+                                <ContainerFamiliaText>
+                                    <ContainerFamiliaHeader>
+                                        Data:
                                     </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    Familia aleatoria de sounou
+                                    <FamiliaText>
+                                        {item.data}
                                     </FamiliaText>
-                            </ContainerFamiliaText>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Data:
-                                </ContainerFamiliaHeader>
-                                <FamiliaText>00/00/0000</FamiliaText>
-                            </ContainerFamiliaText>
-                        </Item>
-
-                        <Item>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Familia ajudada:
-                                    </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    Familia aleatoria de sounou
-                                    </FamiliaText>
-                            </ContainerFamiliaText>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Data:
-                                </ContainerFamiliaHeader>
-                                <FamiliaText>00/00/0000</FamiliaText>
-                            </ContainerFamiliaText>
-                        </Item>
-
-                        <Item>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Familia ajudada:
-                                    </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    Familia aleatoria de sounou
-                                    </FamiliaText>
-                            </ContainerFamiliaText>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Data:
-                                </ContainerFamiliaHeader>
-                                <FamiliaText>00/00/0000</FamiliaText>
-                            </ContainerFamiliaText>
-                        </Item>
-
-                        <Item>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Familia ajudada:
-                                    </ContainerFamiliaHeader>
-                                <FamiliaText>
-                                    Familia aleatoria de sounou
-                                    </FamiliaText>
-                            </ContainerFamiliaText>
-                            <ContainerFamiliaText>
-                                <ContainerFamiliaHeader>
-                                    Data:
-                                </ContainerFamiliaHeader>
-                                <FamiliaText>00/00/0000</FamiliaText>
-                            </ContainerFamiliaText>
-                        </Item>
-
+                                </ContainerFamiliaText>
+                            </Item>
+                        ))}
                     </List>
                 </ContainerList>
             </Body>

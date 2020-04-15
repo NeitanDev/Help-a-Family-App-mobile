@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { AsyncStorage } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './pages/Home/Home';
@@ -11,15 +12,19 @@ import Org from './pages/Organizacao/routes';
 const Stack = createStackNavigator();
 
 function Routes() {
+
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Navigator
+                screenOptions={{ headerShown: false }}
+                initialRouteName={Org}
+            >
+                <Stack.Screen name="Org" component={Org} />
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="LoginFamilia" component={LoginFamilia} />
                 <Stack.Screen name="LoginOrg" component={LoginOrg} />
                 <Stack.Screen name="CadastroFamilia" component={CadastroFamilia} />
                 <Stack.Screen name="CadastroOrg" component={CadastroOrg} />
-                <Stack.Screen name="Org" component={Org} />
             </Stack.Navigator>
         </NavigationContainer>
     );

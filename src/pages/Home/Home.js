@@ -47,7 +47,7 @@ export default function Home() {
                 const value = await AsyncStorage.getItem('@MySuperStore:key');
                 if (value !== null) {
                     // We have data!!
-                    console.log(value);
+                    navigation.navigate('Org');
                 }
             } catch (error) {
                 console.log('deu merda na hora de buscar' + error);
