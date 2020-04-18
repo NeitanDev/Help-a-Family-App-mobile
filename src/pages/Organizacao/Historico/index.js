@@ -30,7 +30,8 @@ export default function Historico() {
             const value = await AsyncStorage.getItem('@MySuperStore:key');
             if (value !== null) {
                 await setOrgId(value);
-                console.log(value);
+                const response = await api.get(`historico/orgList/${value}`);
+                setHistory(response.data);
             }
         } catch (error) {
             console.log('deu merda na hora de buscar' + error);
@@ -39,13 +40,14 @@ export default function Historico() {
 
     useEffect(() => {
         _retrieveData();
-        loadHistiry();
+        // loadHistiry();
     }, []);
 
     async function loadHistiry() {
-        const response = await api.get('/list/familia');
-        setHistory(response.data);
-        console.log("chamei essa merda");
+        // const response = await api.get(`historico/orgList/${orgId}`);
+        // setHistory(response.data);
+        // console.log("Chamei essa merda");
+        // console.log(orgId);
     };
 
     return (
@@ -71,7 +73,7 @@ export default function Historico() {
                                         Familia ajudada:
                                     </ContainerFamiliaHeader>
                                     <FamiliaText>
-                                        {item.nome}
+                                        {item.sobrenome}
                                     </FamiliaText>
                                 </ContainerFamiliaText>
                                 <ContainerFamiliaText>
@@ -79,7 +81,10 @@ export default function Historico() {
                                         Data:
                                     </ContainerFamiliaHeader>
                                     <FamiliaText>
-                                        {item.sobrenome}
+                                        {
+                                            
+                                            item.data
+                                        }
                                     </FamiliaText>
                                 </ContainerFamiliaText>
                             </Item>
