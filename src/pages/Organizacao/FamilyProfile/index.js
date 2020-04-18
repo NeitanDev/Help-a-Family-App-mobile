@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, Linking } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Linking, AsyncStorage, Alert } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import api from '../../../services/api';
 
 import {
     Container,
@@ -26,13 +27,46 @@ import {
     ButtonHistoryText,
     Scroll,
 } from './style';
-// import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function FamilyProfile() {
 
     const navigation = useNavigation();
     const route = useRoute();
     const fam = route.params.fam;
+
+    async function createHistory() {
+        try {
+            const value = await AsyncStorage.getItem('@MySuperStore:key');
+            if (value !== null) {
+                const response = await api.post(`/create/${fam.id}/historico/${value}`);
+                if (response) {
+                    Alert.alert(
+                        'Adicionado ao historico com sucesso',
+                        ``,
+
+                        [
+                            { text: 'OK', onPress: () => { navigation.goBack() } },
+                        ],
+                        { cancelable: false }
+                    );
+                } else if (!response) {
+                    Alert.alert(
+                        'Erro ao adicionar ao hisorico',
+                        ``,
+
+                        [
+                            { text: 'OK', onPress: () => console.log('OK Pressed') },
+                        ],
+                        { cancelable: false }
+                    );
+                }
+            } else if (value == null) {
+                console.log('valor retornou nulo');
+            }
+        } catch (error) {
+            console.log('Deu bosta na hora de salvar, aconteceu isso: ' + error);
+        }
+    }
 
     return (
         <Container>
@@ -105,7 +139,9 @@ export default function FamilyProfile() {
                             <TitleInfoFamily>Ajudamos essa Familia</TitleInfoFamily>
                         </ContainerTitleInfoFamily>
                         <ContentBunttons>
-                            <ButtonHistory>
+                            <ButtonHistory
+                                onPress={createHistory}
+                            >
                                 <ButtonHistoryText>
                                     Add ao Histoico
                             </ButtonHistoryText>

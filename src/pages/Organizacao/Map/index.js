@@ -53,8 +53,8 @@ export default function Map() {
     }
 
     useEffect(() => {
-        loadFamily();
         loadPosition();
+        loadFamily();
     }, []);
 
     async function loadFamily() {

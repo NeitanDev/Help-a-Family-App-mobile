@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import api from '../../../services/api';
 
@@ -22,14 +23,13 @@ import {
 
 export default function Historico() {
 
-    const [orgId, setOrgId] = useState(0);
+    const navigation = useNavigation();
     const [history, setHistory] = useState([]);
 
     async function _retrieveData() {
         try {
             const value = await AsyncStorage.getItem('@MySuperStore:key');
             if (value !== null) {
-                await setOrgId(value);
                 const response = await api.get(`historico/orgList/${value}`);
                 setHistory(response.data);
             }
@@ -38,17 +38,18 @@ export default function Historico() {
         }
     };
 
+    async function logout() {
+        try {
+            await AsyncStorage.clear();
+            navigation.navigate('Home');
+        } catch (error) {
+            console.log('deu bosta na hora de fazer o logout, o erro foi: ' + error);
+        }
+    }
+
     useEffect(() => {
         _retrieveData();
-        // loadHistiry();
     }, []);
-
-    async function loadHistiry() {
-        // const response = await api.get(`historico/orgList/${orgId}`);
-        // setHistory(response.data);
-        // console.log("Chamei essa merda");
-        // console.log(orgId);
-    };
 
     return (
         <Container>
@@ -57,7 +58,11 @@ export default function Historico() {
                     <Logo source={Logosounou} />
                 </ContainerLogo>
                 <ContainerTitlePage>
-                    <TitlePage>Historico</TitlePage>
+                    <TouchableOpacity
+                        onPress={() => { }}
+                    >
+                        <TitlePage>Historico</TitlePage>
+                    </TouchableOpacity>
                 </ContainerTitlePage>
             </Header>
             <Body>
@@ -81,10 +86,7 @@ export default function Historico() {
                                         Data:
                                     </ContainerFamiliaHeader>
                                     <FamiliaText>
-                                        {
-                                            
-                                            item.data
-                                        }
+                                        {item.data}
                                     </FamiliaText>
                                 </ContainerFamiliaText>
                             </Item>
