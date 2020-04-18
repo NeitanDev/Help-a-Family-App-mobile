@@ -43,11 +43,7 @@ export default function Historico() {
     }, []);
 
     async function loadHistiry() {
-        const response = await api.get('/historico/orgList', {
-            headers: {
-                authorization: orgId,
-            },
-        });
+        const response = await api.get('/list/familia');
         setHistory(response.data);
         console.log("chamei essa merda");
     };
@@ -75,7 +71,7 @@ export default function Historico() {
                                         Familia ajudada:
                                     </ContainerFamiliaHeader>
                                     <FamiliaText>
-                                        {item.sobrenome}
+                                        {item.nome}
                                     </FamiliaText>
                                 </ContainerFamiliaText>
                                 <ContainerFamiliaText>
@@ -83,7 +79,7 @@ export default function Historico() {
                                         Data:
                                     </ContainerFamiliaHeader>
                                     <FamiliaText>
-                                        {item.data}
+                                        {item.sobrenome}
                                     </FamiliaText>
                                 </ContainerFamiliaText>
                             </Item>
