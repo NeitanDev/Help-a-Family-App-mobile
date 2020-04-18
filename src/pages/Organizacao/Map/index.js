@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, AsyncStorage } from 'react-native';
 // import Constants from 'expo-constants';
 import Logosounou from '../../../assets/LogoVerde.png';
 import FamiliIcon from '../../../assets/FamiliaModal.png';
@@ -29,8 +29,8 @@ export default function Map() {
 
     const navigation = useNavigation();
     const [currentRegion, setCurrentRegion] = useState(null);
-    const [latitude, setLatitude] = useState(-23.2730918);
-    const [longitude, setLongitude] = useState(-46.5902931);
+    // const [latitude, setLatitude] = useState(-23.2730918);
+    // const [longitude, setLongitude] = useState(-46.5902931);
 
     const [family, setFamily] = useState([]);
 
@@ -52,7 +52,21 @@ export default function Map() {
         }
     }
 
+    async function _retrieveData() {
+        try {
+            const value = await AsyncStorage.getItem('@MySuperStore:key');
+            if (value !== null) {
+                
+            }else if (value == null) {
+                navigation.navigate('Home');
+            }
+        } catch (error) {
+            console.log('deu merda na hora de buscar' + error);
+        }
+    };
+
     useEffect(() => {
+        _retrieveData()
         loadPosition();
         loadFamily();
     }, []);

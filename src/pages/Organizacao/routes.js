@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 //import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import Profile from './Profile/index';
@@ -42,7 +42,6 @@ export default function Org() {
             })}
 
         >
-            {/* <Tab.Screen name="Profile" component={Profile} /> */}
             <Tab.Screen name="Map" component={Maps} />
             <Tab.Screen name="Historico" component={Historico} />
         </Tab.Navigator>

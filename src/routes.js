@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { AsyncStorage } from 'react-native';
+import React from 'react';
+// import { AsyncStorage } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './pages/Home/Home';
@@ -12,7 +12,6 @@ import Org from './pages/Organizacao/routes';
 const Stack = createStackNavigator();
 
 function Routes() {
-
     return (
         <NavigationContainer>
             <Stack.Navigator
