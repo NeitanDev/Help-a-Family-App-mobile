@@ -59,7 +59,7 @@ export default function Historico() {
                 </ContainerLogo>
                 <ContainerTitlePage>
                     <TouchableOpacity
-                        onPress={() => { }}
+                        onPress={logout}
                     >
                         <TitlePage>Historico</TitlePage>
                     </TouchableOpacity>
