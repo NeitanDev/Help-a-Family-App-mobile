@@ -27,8 +27,8 @@ import {
 export default function Cadastro() {
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
-    const [chave, setChave] = useState('');
-    const [senha, setSenha] = useState('');
+    const [chave, setChave] = useState('null');
+    const [senha, setSenha] = useState('null');
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [qtd, setQtd_membros] = useState('');
@@ -101,35 +101,7 @@ export default function Cadastro() {
                 <Scroll>
                     <Title>Faça o Cadastro</Title>
                     <ContainerInput>
-                        <TitleInput>Chave de acesso:</TitleInput>
-                        <Inupt
-                            placeholder="Ex: familiaSou..."
-                            autoCorrect={false}
-                            autoCapitalize="none"
-                            value={chave}
-                            onChangeText={setChave}
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <TitleInput>Senha:</TitleInput>
-                        <Inupt
-                            placeholder="Ex: familiaSou123..."
-                            autoCorrect={false}
-                            autoCapitalize="none"
-                            value={senha}
-                            onChangeText={setSenha}
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <TitleInput>Repita a senha:</TitleInput>
-                        <Inupt
-                            placeholder="Ex: familiaSou123..."
-                            autoCorrect={false}
-                            autoCapitalize="none"
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <TitleInput>Nome do chefe de familia:</TitleInput>
+                        <TitleInput>Nome do(a) chefe de familia:</TitleInput>
                         <Inupt
                             placeholder="Ex: Jailson..."
                             autoCorrect={false}
