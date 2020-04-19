@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AsyncStorage, TouchableOpacity } from 'react-native';
+import socketio from 'socket.io-client';
 import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import api from '../../../services/api';
