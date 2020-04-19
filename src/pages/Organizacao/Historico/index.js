@@ -49,6 +49,7 @@ export default function Historico() {
     }
 
     useEffect(() => {
+        const socket = socketio('http://192.168.4.102:3333');
         _retrieveData();
     }, []);
 
