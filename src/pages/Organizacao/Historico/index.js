@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, TouchableOpacity } from 'react-native';
-import socketio from 'socket.io-client';
+import { AsyncStorage, TouchableOpacity, YellowBox } from 'react-native';
+import io from 'socket.io-client';
 import { useNavigation } from '@react-navigation/native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import api from '../../../services/api';
@@ -22,6 +22,10 @@ import {
     ContainerFamiliaHeader,
 } from './style';
 
+YellowBox.ignoreWarnings([
+    'Unrecognized WebSocket'
+])
+
 export default function Historico() {
 
     const navigation = useNavigation();
@@ -33,6 +37,7 @@ export default function Historico() {
             if (value !== null) {
                 const response = await api.get(`historico/orgList/${value}`);
                 setHistory(response.data);
+                // console.log(response.data);
             }
         } catch (error) {
             console.log('deu merda na hora de buscar' + error);
@@ -48,9 +53,18 @@ export default function Historico() {
         }
     }
 
+    async function registerToSocket() {
+        const socket = io('http://192.168.4.102:3333');
+        // console.log(history);
+        socket.on('hist', newHist => {
+            // console.log(history);
+            setHistory(newHist);
+        })
+    }
+
     useEffect(() => {
-        const socket = socketio('http://192.168.4.102:3333');
         _retrieveData();
+        registerToSocket();
     }, []);
 
     return (
@@ -88,7 +102,7 @@ export default function Historico() {
                                         Data:
                                     </ContainerFamiliaHeader>
                                     <FamiliaText>
-                                        {item.data}
+                                        {item.date}
                                     </FamiliaText>
                                 </ContainerFamiliaText>
                             </Item>
