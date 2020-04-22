@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { View, StyleSheet, Text, AsyncStorage } from 'react-native';
-// import Constants from 'expo-constants';
 import Logosounou from '../../../assets/LogoVerde.png';
 import FamiliIcon from '../../../assets/FamiliaModal.png';
 import { useNavigation } from '@react-navigation/native';

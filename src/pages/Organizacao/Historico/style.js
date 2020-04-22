@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-//import { exp } from 'react-native-reanimated';
 
 export const Container = styled.View`
     flex:1;
@@ -9,9 +8,7 @@ export const Container = styled.View`
 
 export const Header = styled.View`
     width:100%;
-    /* align-items: flex-start; */
     height: 11%;
-    /* background-color: #333; */
     padding-left:40px; 
     justify-content: space-between;
     flex-direction: row;
@@ -23,7 +20,6 @@ export const ContainerLogo = styled.View`
     width:40%;
     align-items: center;
     justify-content: center;
-    /* background-color: #333; */
 `;
 
 export const Logo = styled.Image`
@@ -34,7 +30,6 @@ export const Logo = styled.Image`
 export const ContainerTitlePage = styled.View`
     height: 100%;
     width:40%;
-    /* background-color: #2bbf54; */
     justify-content:center;
     align-items:center;
 `;
@@ -50,7 +45,6 @@ export const Body = styled.View`
     height: 89%;
     background-color: #FFF;
     align-items: center;
-    /* justify-content: center; */
     border-radius: 50px;
     padding-left: 24px;
     padding-right: 24px;
@@ -58,7 +52,6 @@ export const Body = styled.View`
 `;
 
 export const Title = styled.Text`
-    /* font-family: Amaranth-Regular; */
     font-size: 40px;
     color: #2bbf54;
     text-align: center;
@@ -92,12 +85,10 @@ export const Item = styled.View`
 `;
 
 export const FamiliaText = styled.Text`
-    /* font-family: Amaranth-Regular; */
     font-size: 18px;
 `;
 
 export const ContainerFamiliaHeader = styled.Text`
-    /* font-family: Amaranth-Regular; */
     font-size: 16px;
     color: #bfbfbf;
     position: absolute;
@@ -106,9 +97,7 @@ export const ContainerFamiliaHeader = styled.Text`
 
 export const ContainerFamiliaText = styled.View`
     height: 100px;
-    /* background-color: #333; */
     width: 40%;
     flex-direction: column;
     justify-content:center;
-    /* padding-top:2px; */
 `;

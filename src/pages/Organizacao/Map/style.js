@@ -51,7 +51,6 @@ export const Body = styled.View`
 // até aqui é padrão para todas as paginas
 
 export const CalloutDetails = styled.View`
-    /* background-color: #333; */
     width: 100%;
     height: 100%;
 `;
@@ -69,18 +68,15 @@ export const IconFamily = styled.Image`
     height:42px;
     width:42px;
     border-radius:5px;
-    /* border:1px; */
 `;
 
 export const NameFamily = styled.Text`
     color: #000;
-    /* font-family: Amaranth-Regular; */
     margin-bottom:2px;
 `;
 
 export const TitleNameFamily = styled.Text`
     color: #bfbfbf;
-    /* font-family: Amaranth-Regular; */
 `;
 
 export const ContentNameFamili = styled.View`

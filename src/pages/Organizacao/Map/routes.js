@@ -12,7 +12,6 @@ function RoutesMap() {
             screenOptions={{ headerShown: false }}
             initialRouteName={Index}
             animationEnabled={false}
-            // animationTypeForReplace="pop"
         >
             <Stack.Screen name="Index" component={Index} />
             <Stack.Screen name="FamilyProfile" component={FamilyProfile} />

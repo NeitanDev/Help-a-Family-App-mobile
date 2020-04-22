@@ -58,7 +58,6 @@ export default function Login() {
                 ],
                 { cancelable: false }
             );
-            // console.log(err);
         }
     }
 
@@ -89,7 +88,6 @@ export default function Login() {
                     />
                     <Input
                         placeholder="Senha"
-                        // autoCompleteType="password"
                         secureTextEntry={true}
                         autoCorrect={false}
                         autoCapitalize="none"

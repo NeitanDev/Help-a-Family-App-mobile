@@ -9,9 +9,7 @@ export const Container = styled.View`
 
 export const Header = styled.View`
     width:100%;
-    /* align-items: flex-start; */
     height: 11%;
-    /* background-color: #333; */
     padding-left:40px; 
     justify-content: space-between;
     flex-direction: row;
@@ -23,7 +21,6 @@ export const ContainerLogo = styled.View`
     width:40%;
     align-items: center;
     justify-content: center;
-    /* background-color: #333; */
 `;
 
 export const Logo = styled.Image`
@@ -34,7 +31,6 @@ export const Logo = styled.Image`
 export const ContainerTitlePage = styled.View`
     height: 100%;
     width:40%;
-    /* background-color: #2bbf54; */
     justify-content:center;
     align-items:center;
 `;
@@ -50,7 +46,6 @@ export const Body = styled.View`
     height: 87%;
     background-color: #FFF;
     align-items: center;
-    /* justify-content: center; */
     border-radius: 50px;
     padding-left: 24px;
     padding-right: 24px;
@@ -62,7 +57,6 @@ export const Body = styled.View`
 export const ContainerOrg = styled.View`
     height: 35%;
     width: 100%;
-    /* background-color: #333; */
     align-items: center;
 `;
 
@@ -74,7 +68,6 @@ export const OrgImage = styled.Image`
 export const Form = styled.View`
     height: 65%;
     width: 100%;
-    /* background-color: #333; */
     justify-content: flex-end;
     align-items:center;
     padding-top:24px;
@@ -100,9 +93,7 @@ export const Input =  styled.TextInput`
     border-radius:8px;
     padding-left:10px;
     padding-right:8px;
-    /* font-family: Amaranth-Regular; */
     font-size: 24px;
-    /* color: #2bbf54; */
     margin-top: 24px;
 `;
 
@@ -112,12 +103,7 @@ export const Button = styled.TouchableOpacity`
     background-color: #FFF;
     justify-content:center;
     align-items: center;
-    /* border: 0.5px; */
     border-radius:10px;
-    /* padding-left:10px; */
-    /* padding-right:8px; */
-    /* font-family: Amaranth-Regular; */
-    /* font-size: 24px; */
     background-color: #2bbf54;
     margin-top: 24px;
 `;
