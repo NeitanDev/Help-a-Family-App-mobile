@@ -145,7 +145,6 @@ export default function Cadastro() {
                         <Inupt
                             placeholder="Ex: (11) 90000-0000"
                             autoCorrect={true}
-                            // autoCapitalize="none"
                             maxLength={255}
                             keyboardType={'numeric'}
                             value={whatsapp}
@@ -157,7 +156,6 @@ export default function Cadastro() {
                         <Inupt
                             placeholder="Ex: (11) 90000-0000"
                             autoCorrect={true}
-                            // autoCapitalize="none"
                             maxLength={255}
                             keyboardType={'numeric'}
                             value={telefone}
