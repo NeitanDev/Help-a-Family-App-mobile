@@ -12,7 +12,6 @@ import {
     ContainerLogo,
     Logo,
     ContainerTitlePage,
-    // TitlePage,
     Body,
     ContentInfoFamily,
     TopInfoFamily,

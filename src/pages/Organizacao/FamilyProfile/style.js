@@ -44,10 +44,6 @@ export const Body = styled.ScrollView`
     width: 100%;
     height: 87%;
     background-color: #FFF;
-    /* align-items: center; */
-    /* padding: 24px; */
-    /* border-radius: 50px; */
-    /* overflow: hidden; */
 `;
 
 export const Scroll = styled.View`
@@ -58,12 +54,10 @@ export const Scroll = styled.View`
     padding-top: 24px;
     padding-left:24px;
     padding-right:24px;
-    /* border-radius: 50px; */
 `;
 
 export const ContentInfoFamily = styled.View`
     width:100%;
-    /* height:60%; */
     background-color: #f2f2f2;
     border-radius: 10px;
     padding:12px;
@@ -74,7 +68,6 @@ export const TopInfoFamily = styled.View`
      width:100%;
      justify-content: space-between;
      flex-direction: row;
-     /* margin-bottom:5px; */
 `;
 
 export const TitleInfoFamily = styled.Text`
