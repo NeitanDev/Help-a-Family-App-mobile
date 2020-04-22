@@ -29,8 +29,6 @@ export default function Map() {
 
     const navigation = useNavigation();
     const [currentRegion, setCurrentRegion] = useState(null);
-    // const [latitude, setLatitude] = useState(-23.2730918);
-    // const [longitude, setLongitude] = useState(-46.5902931);
 
     const [family, setFamily] = useState([]);
 
