@@ -9,7 +9,8 @@
 <p align="center">
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-video-do-projeto">Video</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-contato">Contato</a>
 </p>
 
 <br>
@@ -38,8 +39,18 @@ Esse projeto foi desenvolvido utilizando:
 
 O Help a Famly é um projeto que visa posibilitar que entidades de ajudas sociais possam ver as localidades onde há familias que necessitam de ajuda e possam entrar em contato com a familia para ajuda-los.
 
+## Video do Projeto
+
+Neste video explico melhor sobre o app e o intuito
+
+- [Video no Instagram]()
+
 ## 📧 Contato
 
 - Email: natan.miranda02@gmail.com
 - [Linkdin](https://www.linkedin.com/in/natan-bezerra-de-miranda-0b4b93180/)
 - [Instagram](https://www.instagram.com/neitan_miranda02/)
+
+---
+
+Feito com ♥ by Natan Bezerra de Miranda :wave:
