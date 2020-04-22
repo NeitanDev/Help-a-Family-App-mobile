@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import fam from '../../../assets/FamiliaModal.png';
 
