@@ -6,6 +6,14 @@
   🚀 Help a Family
 </h4>
 
-# Help a Family App mobile
+<p align="center">
+  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-> app feito com react-native com a lib expo
+<br>
+
+<p align="center">
+  <img alt="BeTheHero" src="./screenshots/Githubimage.png" width="100%">
+</p>
