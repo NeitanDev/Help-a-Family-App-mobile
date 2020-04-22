@@ -23,11 +23,6 @@
 
 Esse projeto foi desenvolvido utilizando:
 
-- [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/pt-br/)
-- [Sequelize](https://sequelize.org/v5/)
-- [MySQL](https://www.mysql.com/)
-- [Socket.io](https://socket.io/docs)
 - [React Native](https://facebook.github.io/react-native/)
 - [Expo](https://expo.io/)
 - [React Navigation](https://reactnavigation.org/)
@@ -43,7 +38,8 @@ O Help a Famly é um projeto que visa posibilitar que entidades de ajudas sociai
 
 Neste video explico melhor sobre o app e o intuito
 
-- [Video no Instagram]()
+- [Video no Linkedin](https://www.linkedin.com/feed/update/urn:li:activity:6658761440914096128/)
+- [Video no Instagram](https://www.instagram.com/p/B_RN11ClMHs/)
 
 ## 📧 Contato
 
