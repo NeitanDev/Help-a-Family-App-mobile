@@ -36,7 +36,6 @@ import {
 
 export default function Home() {
     const [visibleModal, setVivibleModal] = useState(false);
-    // const [quem, setQuem] = useState('');
     const [qual, setQual] = useState('');
 
     const navigation = useNavigation();
@@ -46,7 +45,6 @@ export default function Home() {
             try {
                 const value = await AsyncStorage.getItem('@MySuperStore:key');
                 if (value !== null) {
-                    // We have data!!
                     navigation.navigate('Org');
                 }
             } catch (error) {
@@ -64,7 +62,6 @@ export default function Home() {
                 visible={visibleModal}
                 onRequestClose={() => {
                     setVivibleModal(false);
-                    // Alert.alert('Modal has been closed.');
                 }}>
                 <ContainerModal>
                     <BodyModal>
@@ -116,8 +113,6 @@ export default function Home() {
                 <Form>
                     <ButtonLogin
                         onPress={() => {
-                            //setVivibleModal(true);
-                            //setQual('Login');
                             navigation.navigate(`LoginOrg`);
                         }}
                     >

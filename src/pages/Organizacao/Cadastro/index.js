@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import Logosounou from '../../../assets/LogoVerde.png';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { useNavigation } from '@react-navigation/native';

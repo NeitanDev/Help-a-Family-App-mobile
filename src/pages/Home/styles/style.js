@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { exp } from 'react-native-reanimated';
 
 export const Container = styled.View`
     flex:1;
@@ -9,9 +8,7 @@ export const Container = styled.View`
 
 export const Header = styled.View`
     width:100%;
-    /* align-items: flex-start; */
     height: 11%;
-    /* background-color: #333; */
     padding-left:40px; 
     justify-content: space-between;
     flex-direction: row;
@@ -23,7 +20,6 @@ export const ContainerLogo = styled.View`
     width:40%;
     align-items: center;
     justify-content: center;
-    /* background-color: #333; */
 `;
 
 export const Logo = styled.Image`
@@ -34,7 +30,6 @@ export const Logo = styled.Image`
 export const ContainerTitlePage = styled.View`
     height: 100%;
     width:40%;
-    /* background-color: #2bbf54; */
     justify-content:center;
     align-items:center;
 `;
@@ -50,7 +45,6 @@ export const Body = styled.View`
     height: 87%;
     background-color: #FFF;
     align-items: center;
-    /* justify-content: center; */
     border-radius: 50px;
     padding-left: 24px;
     padding-right: 24px;
@@ -63,11 +57,8 @@ export const ContainerSolid = styled.View`
     width: 100%;
     padding-left: 22px;
     padding-right: 22px;
-    /* background-color: #152; */
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    /* margin-left: 100px; */
-    /* margin-right: 100px; */
 `;
 
 export const Solid = styled.Image`
@@ -179,7 +170,6 @@ export const ModalItem = styled.TouchableOpacity`
     height: 45%;
     width: 100%;
     background-color: #FFF;
-    /* margin-bottom: 10%; */
     border-radius: 20px;
     padding: 10px;
     align-items:center;
@@ -190,7 +180,6 @@ export const ModalItem = styled.TouchableOpacity`
 export const ModalItemViewImage = styled.View`
     height: 90%;
     width: 100%;
-    /* background-color: #333; */
     align-items:center;
 `;
 
